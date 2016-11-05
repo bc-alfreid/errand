@@ -1,0 +1,76 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+
+h1,h2 {
+  font-family: 'Trirong', 'Helvetica', sans-serif;
+}
+
+body {
+  padding-top: 10px;
+}
+
+.devise {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  overflow: auto;
+}
+
+.panel {
+  margin-top: 2px;
+  background: rgba(0,0,0,0.25);
+  color: white;
+}
+
+.help-block {
+  color: #fff;
+}
+
+.no-col-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.panel-home-search-runner {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: rgba(0, 92, 246, 0.2);
+  color: black;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.panel-home-register-run {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: rgba(0, 92, 246, 0.2);
+  color: black;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.panel-login {
+  margin-top: 2px;
+  background: rgba(0, 90, 203, 1);
+  color: white;
+  height: 1000px;
+  overflow-y: scroll;
+  padding: 150px;
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+
+::-webkit-input-placeholder {
+  font-size: 10px;
+}
