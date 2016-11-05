@@ -2,14 +2,14 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css?family=Trirong');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 h1,h2 {
-  font-family: 'Trirong', 'Helvetica', sans-serif;
+  font-family: 'Ubuntu', 'Helvetica', sans-serif;
 }
 
-body {
-  padding-top: 10px;
+.body {
+  padding-top: 0px;
 }
 
 .devise {
@@ -27,6 +27,9 @@ body {
   margin-top: 2px;
   background: rgba(0,0,0,0.25);
   color: white;
+  baseBorderRadius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
 }
 
 .help-block {
@@ -38,6 +41,25 @@ body {
   margin: 0 !important;
 }
 
+.panel-home-requests {
+  margin-top: 50px;
+  background: rgba(0, 92, 246, 0.5);
+  color: white;
+  height: 1000px;
+  overflow-y: scroll;
+  padding: 0px;
+  baseBorderRadius: 0;
+}
+
+.panel-home-registrations {
+  margin-top: 50px;
+  background: rgba(0, 90, 203, 0.5);
+  color: white;
+  height: 1000px;
+  overflow-y: scroll;
+  padding: 0px;
+  baseBorderRadius: 0;
+}
 
 .panel-home-search-runner {
   padding: 0 !important;
@@ -45,32 +67,47 @@ body {
   background: rgba(0, 92, 246, 0.2);
   color: black;
   height: 400px;
-  overflow-y: scroll;
+  /* scrollable */
+  /* overflow-y: scroll; */
 }
 
 .panel-home-register-run {
-  padding: 0 !important;
-  margin: 0 !important;
-  background: rgba(0, 92, 246, 0.2);
-  color: black;
-  height: 600px;
-  overflow-y: scroll;
+padding: 0 !important;
+margin: 0 !important;
+background: rgba(0, 92, 246, 0.2);
+color: black;
+height: 600px;
+}
+
+.panel-home-signup-run {
+padding: 0 !important;
+margin: 0 !important;
+background: rgba(0, 92, 246, 0.2);
+color: black;
+height: 1000px;
 }
 
 .panel-login {
-  margin-top: 2px;
-  background: rgba(0, 90, 203, 1);
-  color: white;
-  height: 1000px;
-  overflow-y: scroll;
-  padding: 150px;
+margin-top: 0px;
+background: rgba(0, 90, 203, 1);
+color: white;
+height: 1000px;
+overflow-y: scroll;
+padding: 150px;
+baseBorderRadius: 0;
 }
 
 .jumbotron {
-  background-color: transparent;
+background-color: transparent;
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1.2em;
+  }
 }
 
 
 ::-webkit-input-placeholder {
-  font-size: 10px;
+font-size: 10px;
 }
