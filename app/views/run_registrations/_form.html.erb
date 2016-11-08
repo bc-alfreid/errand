@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xs-12 ">
+    <div class="panel 0, panel-home-content">
+      <div class="panel-body">
+        <%= simple_form_for(@run_registration) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <div class="row">
+
+              <div class="col-xs-6 ">
+                <div class="panel panel-success">
+                  <div class="panel-heading">Origin</div>
+                  <div class="panel-body">
+                    <%= f.input :date_from %>
+                    <%= f.input :location_from_adress_line1 %>
+                    <%= f.input :location_from_adress_line2 %>
+                    <%= f.input :location_from_city %>
+                    <%= f.input :location_from_postcode %>
+                    <%= f.input :location_from_adress_state %>
+                    <%= f.input :location_from_adress_country %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-6 ">
+                <div class="panel panel-success">
+                <div class="panel-heading">Destination</div>
+                  <div class="panel-body">
+                    <%= f.input :date_to %>
+                    <%= f.input :location_to_adress_line1 %>
+                    <%= f.input :location_to_adress_line2 %>
+                    <%= f.input :location_to_city %>
+                    <%= f.input :location_to_postcode %>
+                    <%= f.input :location_to_adress_state %>
+                    <%= f.input :location_to_adress_country %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

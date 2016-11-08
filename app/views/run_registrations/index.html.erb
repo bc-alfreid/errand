@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Run Registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location from adress line1</th>
+      <th>Location from adress line2</th>
+      <th>Location from city</th>
+      <th>Location from postcode</th>
+      <th>Location from adress state</th>
+      <th>Location from adress country</th>
+      <th>Location to adress line1</th>
+      <th>Location to adress line2</th>
+      <th>Location to city</th>
+      <th>Location to postcode</th>
+      <th>Location to adress state</th>
+      <th>Location to adress country</th>
+      <th>Date from</th>
+      <th>Date to</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @run_registrations.each do |run_registration| %>
+      <tr>
+        <td><%= run_registration.location_from_adress_line1 %></td>
+        <td><%= run_registration.location_from_adress_line2 %></td>
+        <td><%= run_registration.location_from_city %></td>
+        <td><%= run_registration.location_from_postcode %></td>
+        <td><%= run_registration.location_from_adress_state %></td>
+        <td><%= run_registration.location_from_adress_country %></td>
+        <td><%= run_registration.location_to_adress_line1 %></td>
+        <td><%= run_registration.location_to_adress_line2 %></td>
+        <td><%= run_registration.location_to_city %></td>
+        <td><%= run_registration.location_to_postcode %></td>
+        <td><%= run_registration.location_to_adress_state %></td>
+        <td><%= run_registration.location_to_adress_country %></td>
+        <td><%= run_registration.date_from %></td>
+        <td><%= run_registration.date_to %></td>
+        <td><%= link_to 'Show', run_registration %></td>
+        <td><%= link_to 'Edit', edit_run_registration_path(run_registration) %></td>
+        <td><%= link_to 'Destroy', run_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Run registration', new_run_registration_path %>

@@ -1,0 +1,1 @@
+json.array! @run_requests, partial: 'run_requests/run_request', as: :run_request

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_from_adress_line1: MyString
+  location_from_adress_line2: MyString
+  location_from_city: MyString
+  location_from_postcode: MyString
+  location_from_adress_state: MyString
+  location_from_adress_country: MyString
+  location_to_adress_line1: MyString
+  location_to_adress_line2: MyString
+  location_to_city: MyString
+  location_to_postcode: MyString
+  location_to_adress_state: MyString
+  location_to_adress_country: MyString
+  date_to: 2016-11-08
+  user_id: 
+
+two:
+  location_from_adress_line1: MyString
+  location_from_adress_line2: MyString
+  location_from_city: MyString
+  location_from_postcode: MyString
+  location_from_adress_state: MyString
+  location_from_adress_country: MyString
+  location_to_adress_line1: MyString
+  location_to_adress_line2: MyString
+  location_to_city: MyString
+  location_to_postcode: MyString
+  location_to_adress_state: MyString
+  location_to_adress_country: MyString
+  date_to: 2016-11-08
+  user_id: 

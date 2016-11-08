@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106092531) do
+ActiveRecord::Schema.define(version: 20161108090717) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name",   limit: 255
@@ -32,6 +32,49 @@ ActiveRecord::Schema.define(version: 20161106092531) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "run_registrations", force: :cascade do |t|
+    t.string   "location_from_adress_line1",   limit: 255
+    t.string   "location_from_adress_line2",   limit: 255
+    t.string   "location_from_city",           limit: 255
+    t.string   "location_from_postcode",       limit: 255
+    t.string   "location_from_adress_state",   limit: 255
+    t.string   "location_from_adress_country", limit: 255
+    t.string   "location_to_adress_line1",     limit: 255
+    t.string   "location_to_adress_line2",     limit: 255
+    t.string   "location_to_city",             limit: 255
+    t.string   "location_to_postcode",         limit: 255
+    t.string   "location_to_adress_state",     limit: 255
+    t.string   "location_to_adress_country",   limit: 255
+    t.date     "date_from"
+    t.date     "date_to"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "user_id",                      limit: 4
+  end
+
+  add_index "run_registrations", ["user_id"], name: "index_run_registrations_on_user_id", using: :btree
+
+  create_table "run_requests", force: :cascade do |t|
+    t.string   "location_from_adress_line1",   limit: 255
+    t.string   "location_from_adress_line2",   limit: 255
+    t.string   "location_from_city",           limit: 255
+    t.string   "location_from_postcode",       limit: 255
+    t.string   "location_from_adress_state",   limit: 255
+    t.string   "location_from_adress_country", limit: 255
+    t.string   "location_to_adress_line1",     limit: 255
+    t.string   "location_to_adress_line2",     limit: 255
+    t.string   "location_to_city",             limit: 255
+    t.string   "location_to_postcode",         limit: 255
+    t.string   "location_to_adress_state",     limit: 255
+    t.string   "location_to_adress_country",   limit: 255
+    t.date     "date_to"
+    t.integer  "user_id",                      limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "run_requests", ["user_id"], name: "index_run_requests_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -51,4 +94,6 @@ ActiveRecord::Schema.define(version: 20161106092531) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "run_registrations", "users"
+  add_foreign_key "run_requests", "users"
 end

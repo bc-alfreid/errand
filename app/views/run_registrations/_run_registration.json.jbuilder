@@ -1,0 +1,2 @@
+json.extract! run_registration, :id, :location_from_adress_line1, :location_from_adress_line2, :location_from_city, :location_from_postcode, :location_from_adress_state, :location_from_adress_country, :location_to_adress_line1, :location_to_adress_line2, :location_to_city, :location_to_postcode, :location_to_adress_state, :location_to_adress_country, :date_from, :date_to, :created_at, :updated_at
+json.url run_registration_url(run_registration, format: :json)

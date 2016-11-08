@@ -3,15 +3,38 @@
   <div class="col-md-6 no-col-padding">
     <div class="panel 0, panel-home-requests">
       <div class="panel-body">
+        <p id="notice"><%= notice %></p>
         <h1>eRun Requests</h1>
+        <%= link_to 'Request a Run', new_run_request_path %>
+        <div class="col-md-4">
+          <% @run_requests.each do |run_requests| %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= run_requests.location_from_adress_line1 %>
+                </div>
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-md-6 no-col-padding">
     <div class="panel panel-home-registrations">
       <div class="panel-body">
+        <p id="notice"><%= notice %></p>
         <h1>eRun Registrations</h1>
+        <%= link_to 'Register a Run', new_run_registration_path %>
+        <div class="col-md-4">
+          <% @run_registrations.each do |run_registration| %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= run_registration.location_from_adress_line1 %>
+                </div>
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
