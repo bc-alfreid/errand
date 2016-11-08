@@ -1,5 +1,13 @@
-<h1>New Profile</h1>
-
-<%= render 'form' %>
-
+<div class="row">
+  <div class="col-xs-12 ">
+    <div class="panel 0, panel-home-heading">
+      <div class="jumbotron">
+        <h1>Create Your Profile</h1>
+        <p>Enter the name and contact details.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'form', action: "new" %>
 <%= link_to 'Back', profiles_path %>
+<p>[TODO] There should be a cancel here </p>

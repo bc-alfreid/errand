@@ -1,64 +1,74 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
+<div class="row">
+  <div class="col-xs-12 ">
+    <div class="panel 0, panel-home-heading">
+      <div class="jumbotron">
+        <h1>Hello, <%= @profile.first_name %> </h1>
+        <p1>Here are your details saved with us</p1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
+<div class="row">
+  <div class="col-xs-12 ">
+    <div class="panel 0, panel-home-content">
+      <div class="panel-body ">
+        <p>
+          <strong>First name:</strong>
+          <%= @profile.first_name %>
+        </p>
+        <p>
+          <strong>Last name:</strong>
+          <%= @profile.last_name %>
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @profile.phone %>
+        </p>
+        <p>
+          <strong>Adress line1:</strong>
+          <%= @profile.adress_line1 %>
+        </p>
+        <p>
+          <strong>Adress line2:</strong>
+          <%= @profile.adress_line2 %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
+        <p>
+          <strong>City:</strong>
+          <%= @profile.city %>
+        </p>
 
-<p>
-  <strong>Adress line1:</strong>
-  <%= @profile.adress_line1 %>
-</p>
+        <p>
+          <strong>Postcode:</strong>
+          <%= @profile.postcode %>
+        </p>
 
-<p>
-  <strong>Adress line2:</strong>
-  <%= @profile.adress_line2 %>
-</p>
+        <p>
+          <strong>State:</strong>
+          <%= @profile.state %>
+        </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @profile.city %>
-</p>
+        <p>
+          <strong>Country:</strong>
+          <%= @profile.country %>
+        </p>
 
-<p>
-  <strong>Postcode:</strong>
-  <%= @profile.postcode %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @profile.phone %>
+        </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @profile.state %>
-</p>
+        <!--<p>-->
+          <!--<strong>User:</strong>-->
+          <!--< @profile.user >-->
+        <!--</p>-->
 
-<p>
-  <strong>Country:</strong>
-  <%= @profile.country %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @profile.photo %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+        <%= link_to 'Edit', edit_profile_path(@profile) %> |
+        <%= link_to 'Back', profiles_path %>
+      </div>
+    </div>
+  </div>
+</div>
