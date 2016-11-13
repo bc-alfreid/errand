@@ -5,45 +5,13 @@
 
     <div class="panel panel-home-search-runner">
       <div class="panel-body">
-        <div class="jumbotron">
-          <h1>Look For eRunners</h1>
-          <p>Search for people who are willing to run eRrands for you.</p>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Fr:</span>
-            <input type="text" class="form-control" placeholder="Location of the eRunners you are looking for.." aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="Where do you want the eRrunners to deliver your item.." aria-describedby="basic-addon1">
-            <span class="input-group-addon" id="basic-addon1">Date</span>
-            <input type="text" class="form-control" placeholder="When do you want the item delivered" aria-describedby="basic-addon1">
-
-          </div>
-
-          <p><a class="btn btn-success btn-sm" href="#" role="button">Search</a></p>
-        </div>
+        <%= render 'layouts/look_for_runners' %>
       </div>
     </div>
 
     <div class="panel panel-home-register-run">
       <div class="panel-body">
-        <div class="jumbotron">
-          <h1>Register an eRun</h1>
-          <p>Tell people you are willing to run eRrands for them</p>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Fr:</span>
-            <input type="text" class="form-control" placeholder="Where are you eRunning.." aria-describedby="basic-addon1">
-            <span class="input-group-addon" id="basic-addon1">Date</span>
-            <input type="text" class="form-control" placeholder="When are you available for eRunning" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="Where is your destination" aria-describedby="basic-addon1">
-            <span class="input-group-addon" id="basic-addon1">Date</span>
-            <input type="text" class="form-control" placeholder="When are you arriving at the destination" aria-describedby="basic-addon1">
-          </div>
-          <p><a class="btn btn-success btn-sm" href="#" role="button">Login or SignUp</a></p>
-        </div>
+        <%= render 'layouts/offer_a_run' %>
       </div>
     </div>
 

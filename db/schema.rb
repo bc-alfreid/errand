@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108090717) do
+ActiveRecord::Schema.define(version: 20161112225538) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name",   limit: 255
@@ -47,9 +47,11 @@ ActiveRecord::Schema.define(version: 20161108090717) do
     t.string   "location_to_adress_country",   limit: 255
     t.date     "date_from"
     t.date     "date_to"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "user_id",                      limit: 4
+    t.string   "desciption",                   limit: 255
+    t.text     "message",                      limit: 65535
   end
 
   add_index "run_registrations", ["user_id"], name: "index_run_registrations_on_user_id", using: :btree
@@ -69,8 +71,10 @@ ActiveRecord::Schema.define(version: 20161108090717) do
     t.string   "location_to_adress_country",   limit: 255
     t.date     "date_to"
     t.integer  "user_id",                      limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "desrciption",                  limit: 255
+    t.text     "message",                      limit: 65535
   end
 
   add_index "run_requests", ["user_id"], name: "index_run_requests_on_user_id", using: :btree

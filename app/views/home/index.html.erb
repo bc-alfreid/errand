@@ -4,37 +4,116 @@
     <div class="panel 0, panel-home-requests">
       <div class="panel-body">
         <p id="notice"><%= notice %></p>
-        <h1>eRun Requests</h1>
-        <%= link_to 'Request a Run', new_run_request_path %>
-        <div class="col-md-4">
-          <% @run_requests.each do |run_requests| %>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <%= run_requests.location_from_adress_line1 %>
-                </div>
-              </div>
-          <% end %>
+        <div class="jumbotron">
+          <h1>My eRun Requests</h1>
+          <p>Here are the list of runs you requested</p>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 no-col-padding">
-    <div class="panel panel-home-registrations">
-      <div class="panel-body">
-        <p id="notice"><%= notice %></p>
-        <h1>eRun Registrations</h1>
-        <%= link_to 'Register a Run', new_run_registration_path %>
-        <div class="col-md-4">
-          <% @run_registrations.each do |run_registration| %>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <%= run_registration.location_from_adress_line1 %>
-                </div>
-              </div>
-          <% end %>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                <a href="<%= new_run_request_path %>">Request a Run </a>
+              </button>
+            </div>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <% i = 1; %>
+            <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
+              <% @run_requests.each do |run_request| %>
+                  <div class="panel panel-info">
+                    <div class="panel-heading" role="tab" id="headingTwo<%= i %>">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%= i %>" aria-expanded="false" aria-controls="collapseTwo<%= i %>">
+                          <span>
+                            <%= run_request.desrciption %>
+                            <p align="right"><%= link_to 'Delete', run_request_path(run_request), method: :delete%></p>
+                          </span>
+
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<%= i %>">
+                      <div class="panel-body">
+                        <%= render run_request %>
+                      </div>
+                    </div>
+                  </div>
+                  <% i = i + 1 %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 " style="width: 95%;">
+            <%= render 'layouts/look_for_runners' %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
+  <div class="col-md-6 no-col-padding">
+    <div class="panel panel-home-registrations">
+      <div class="panel-body">
+        <div class="jumbotron">
+          <h1>My eRun Offers</h1>
+          <p>Here are the list of runs you are willing to do</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                <a href="<%= new_run_registration_path %>">Offer a Run </a>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <% i = 1; %>
+            <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
+              <% @run_registrations.each do |run_registration| %>
+                <div class="panel panel-info">
+                  <div class="panel-heading" role="tab" id="headingThree<%= i %>">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<%= i %>" aria-expanded="false" aria-controls="collapseThree<%= i %>">
+                        <span>
+                          <%= run_registration.desciption %>
+                          <p align="right"><%= link_to 'Delete', run_registration_path(run_registration), method: :delete%></p>
+                        </span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree<%= i %>">
+                    <div class="panel-body">
+                        <%= render run_registration %>
+                      </div>
+                    </div>
+                </div>
+                <% i = i + 1 %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4 " style="width: 95%;">
+            <%= render 'layouts/look_for_requests' %>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

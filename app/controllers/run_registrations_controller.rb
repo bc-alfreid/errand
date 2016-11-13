@@ -44,8 +44,9 @@ class RunRegistrationsController < ApplicationController
   def update
     respond_to do |format|
       if @run_registration.update(run_registration_params)
-        format.html { redirect_to @run_registration, notice: 'Run registration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @run_registration }
+        format.html { redirect_to url_for(:controller => :home, :action => :index), notice: 'Run registration was successfully updated.' }
+        # format.html { redirect_to @run_registration, notice: 'Run registration was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @run_registration }
       else
         format.html { render :edit }
         format.json { render json: @run_registration.errors, status: :unprocessable_entity }
@@ -58,8 +59,9 @@ class RunRegistrationsController < ApplicationController
   def destroy
     @run_registration.destroy
     respond_to do |format|
-      format.html { redirect_to run_registrations_url, notice: 'Run registration was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to url_for(:controller => :home, :action => :index), notice: 'Run registration was deleted.' }
+      # format.html { redirect_to run_registrations_url, notice: 'Run registration was successfully destroyed.' }
+      # format.json { head :no_content }
     end
   end
 
@@ -71,6 +73,6 @@ class RunRegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def run_registration_params
-      params.require(:run_registration).permit(:location_from_adress_line1, :location_from_adress_line2, :location_from_city, :location_from_postcode, :location_from_adress_state, :location_from_adress_country, :location_to_adress_line1, :location_to_adress_line2, :location_to_city, :location_to_postcode, :location_to_adress_state, :location_to_adress_country, :date_from, :date_to, :user_id)
+      params.require(:run_registration).permit(:location_from_adress_line1, :location_from_adress_line2, :location_from_city, :location_from_postcode, :location_from_adress_state, :location_from_adress_country, :location_to_adress_line1, :location_to_adress_line2, :location_to_city, :location_to_postcode, :location_to_adress_state, :location_to_adress_country, :date_from, :date_to, :user_id, :message, :desciption)
     end
 end

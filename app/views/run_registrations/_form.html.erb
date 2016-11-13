@@ -5,7 +5,20 @@
         <%= simple_form_for(@run_registration) do |f| %>
           <%= f.error_notification %>
 
+
           <div class="form-inputs">
+            <div class="row">
+              <div class="col-xs-6 ">
+                <div class="panel panel-success">
+                  <div class="panel-heading">Summary</div>
+                    <div class="panel-body">
+                      <%= f.input :desciption %>
+                      <%= f.input :message %>
+                    </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
 
               <div class="col-xs-6 ">
