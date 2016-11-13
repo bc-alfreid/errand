@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112225538) do
+ActiveRecord::Schema.define(version: 20161113075514) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name",   limit: 255
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20161112225538) do
     t.integer  "user_id",                      limit: 4
     t.string   "desciption",                   limit: 255
     t.text     "message",                      limit: 65535
+    t.float    "latitude",                     limit: 24
+    t.float    "longitude",                    limit: 24
   end
 
   add_index "run_registrations", ["user_id"], name: "index_run_registrations_on_user_id", using: :btree

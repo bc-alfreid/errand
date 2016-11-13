@@ -16,6 +16,11 @@ gem 'country_select'
 gem 'cloudinary'
 gem 'carrierwave'
 
+# for maps
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use mysql as the database for Active Record

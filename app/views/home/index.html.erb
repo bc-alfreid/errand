@@ -95,6 +95,44 @@
                   <div id="collapseThree<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree<%= i %>">
                     <div class="panel-body">
                         <%= render run_registration %>
+
+
+                      <div id="google-map" style="width: 400px; height: 200px;"></div>
+                      <!--https://jsfiddle.net/4gLaobzh/-->
+
+                      <script type="text/javascript">
+
+
+
+                        var latitude = $('#google-map').data('latitude')
+                        var longitude = $('#google-map').data('longitude')
+                        function initialize_map() {
+                          handler = Gmaps.build('Google');
+                          handler.buildMap({ provider: {}, internal: {id: 'google-map'}}, function(){
+
+                            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+                            handler.bounds.extendWith(markers);
+                            handler.fitMapToBounds();
+                          });
+                        }
+                        initialize_map();
+                        $("#collapseThree<%= i %>").on('hidden.bs.collapse', function () {
+                          initialize_map();
+                        })
+                        $("#collapseThree<%= i %>").on('shown.bs.collapse', function () {
+                          initialize_map();
+                        })
+
+                        google.maps.event.addDomListener(window, 'resize', function() {
+
+                        });
+
+
+                      </script>
+
+
+
                       </div>
                     </div>
                 </div>
@@ -117,3 +155,5 @@
     </div>
   </div>
 </div>
+
+
