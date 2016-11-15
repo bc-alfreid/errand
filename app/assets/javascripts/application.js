@@ -20,4 +20,3 @@
 //= require underscore
 //= require gmaps/google
 
-$scope.id = 0;
