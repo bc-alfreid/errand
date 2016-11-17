@@ -1,10 +1,27 @@
 class RunRegistrationsController < ApplicationController
   before_action :set_run_registration, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :authenticate_user!, only: [:search]
+
   # GET /run_registrations
   # GET /run_registrations.json
   def index
     @run_registrations = RunRegistration.all
+  end
+
+  def search
+    @profile = current_user.profile
+
+    @nearby_run_registrations_from = RunRegistration.near(params['runner_from'], 5)
+    @nearby_run_registrations_to = RunRegistration.near(params['runner_to'], 5)
+
+    p '111111111'
+    p @nearby_run_registrations_from
+
+    p '22222222'
+    p @nearby_run_registrations_to
+
+
   end
 
   # GET /run_registrations/1

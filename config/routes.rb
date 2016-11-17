@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   resources :run_requests
-  resources :run_registrations
+  resources :run_registrations do
+    collection do
+      post :search
+    end
+  end
   resources :profiles
   devise_for :users, controllers: { registrations: "registrations" }
   root 'home#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

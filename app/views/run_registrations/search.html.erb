@@ -1,0 +1,78 @@
+
+<div class="col-md-12 no-col-padding">
+  <div class="panel panel-home-registrations">
+    <div class="panel-body">
+      <div class="jumbotron">
+        <%= name = '' %>
+        <% name = @profile.first_name if @profile %>
+        <h1>Hello, <%= name %> </h1>
+        <p1>Here available runners based on your search criteria</p1>
+        <p1>TODO: Show search criteria</p1>
+        <p1>TODO: Refine search</p1>
+      </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <% i = 1; %>
+            <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
+
+              <% @nearby_run_registrations_from.each do |run_registration| %>
+
+                  <div class="panel panel-info">
+                    <div class="panel-heading" role="tab" id="headingThree<%= i %>">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<%= i %>" aria-expanded="false" aria-controls="collapseThree<%= i %>">
+                        <span>
+                          <%= run_registration.desciption %>
+                        </span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree<%= i %>">
+                      <div class="panel-body">
+                        <%= render run_registration %>
+
+
+                        <!--https://jsfiddle.net/4gLaobzh/-->
+                        <div id="google-map<%= i %>" style="width: 400px; height: 200px;"></div>
+
+
+                        <% hash = Gmaps4rails.build_markers(run_registration) do |run_registration, marker| %>
+                            <% marker.lat run_registration.latitude %>
+                            <% marker.lng run_registration.longitude %>
+                            <% marker.infowindow run_registration.desciption    %>
+                        <% end %>
+
+                        <script type="text/javascript">
+                          function initialize_map() {
+                            handler = Gmaps.build('Google');
+                            handler.buildMap({ provider: {}, internal: {id: 'google-map<%= i %>'}}, function(){
+                              markers = handler.addMarkers(<%=raw hash.to_json %>);
+                              handler.bounds.extendWith(markers);
+                              handler.fitMapToBounds();
+                            });
+                          }
+                          initialize_map();
+                          $("#collapseThree<%= i %>").on('hidden.bs.collapse', function () {
+                            initialize_map();
+                          });
+                          $("#collapseThree<%= i %>").on('shown.bs.collapse', function () {
+                            initialize_map();
+                          });
+                          google.maps.event.addDomListener(window, 'resize', function() {
+                          });
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <% i = i + 1 %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
