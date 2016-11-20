@@ -16,8 +16,7 @@
             <% i = 1; %>
             <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
 
-              <% @nearby_run_registrations_from.each do |run_registration| %>
-
+              <% @nearby_run_registration.each do |run_registration| %>
                   <div class="panel panel-info">
                     <div class="panel-heading" role="tab" id="headingThree<%= i %>">
                       <h4 class="panel-title">

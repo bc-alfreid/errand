@@ -5,7 +5,6 @@
         <%= simple_form_for(@run_registration) do |f| %>
           <%= f.error_notification %>
 
-
           <div class="form-inputs">
             <div class="row">
               <div class="col-xs-6 ">
@@ -26,12 +25,21 @@
                   <div class="panel-heading">Origin</div>
                   <div class="panel-body">
                     <%= f.input :date_from %>
-                    <%= f.input :location_from_adress_line1 %>
-                    <%= f.input :location_from_adress_line2 %>
-                    <%= f.input :location_from_city %>
-                    <%= f.input :location_from_postcode %>
-                    <%= f.input :location_from_adress_state %>
-                    <%= f.input :location_from_adress_country %>
+                    <% if @run_registration.from %>
+                      <%= f.input :location_from_adress_line1, input_html: {value: @run_registration.from.address_line1}  %>
+                      <%= f.input :location_from_adress_line2, input_html: {value: @run_registration.from.address_line2} %>
+                      <%= f.input :location_from_city, input_html: {value: @run_registration.from.city} %>
+                      <%= f.input :location_from_postcode, input_html: {value: @run_registration.from.postcode} %>
+                      <%= f.input :location_from_adress_state, input_html: {value: @run_registration.from.state} %>
+                      <%= f.input :location_from_adress_country, :selected => @run_registration.from.country  %>
+                    <% else %>
+                      <%= f.input :location_from_adress_line1 %>
+                      <%= f.input :location_from_adress_line2 %>
+                      <%= f.input :location_from_city %>
+                      <%= f.input :location_from_postcode %>
+                      <%= f.input :location_from_adress_state %>
+                      <%= f.input :location_from_adress_country  %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -41,12 +49,21 @@
                 <div class="panel-heading">Destination</div>
                   <div class="panel-body">
                     <%= f.input :date_to %>
-                    <%= f.input :location_to_adress_line1 %>
-                    <%= f.input :location_to_adress_line2 %>
-                    <%= f.input :location_to_city %>
-                    <%= f.input :location_to_postcode %>
-                    <%= f.input :location_to_adress_state %>
-                    <%= f.input :location_to_adress_country %>
+                    <% if @run_registration.to %>
+                      <%= f.input :location_to_adress_line1, input_html: {value: @run_registration.to.address_line1}  %>
+                      <%= f.input :location_to_adress_line2, input_html: {value: @run_registration.to.address_line2}  %>
+                      <%= f.input :location_to_city, input_html: {value: @run_registration.to.city} %>
+                      <%= f.input :location_to_postcode, input_html: {value: @run_registration.to.postcode} %>
+                      <%= f.input :location_to_adress_state, input_html: {value: @run_registration.to.state} %>
+                      <%= f.input :location_to_adress_country, :selected => @run_registration.to.country %>
+                    <% else %>
+                        <%= f.input :location_to_adress_line1  %>
+                        <%= f.input :location_to_adress_line2  %>
+                        <%= f.input :location_to_city %>
+                        <%= f.input :location_to_postcode %>
+                        <%= f.input :location_to_adress_state %>
+                        <%= f.input :location_to_adress_country %>
+                    <% end %>
                   </div>
                 </div>
               </div>

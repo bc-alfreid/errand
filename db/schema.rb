@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113075514) do
+ActiveRecord::Schema.define(version: 20161117085313) do
+
+  create_table "locations", force: :cascade do |t|
+    t.float    "latitude",            limit: 24
+    t.float    "longitude",           limit: 24
+    t.integer  "run_registration_id", limit: 4
+    t.integer  "run_request_id",      limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "address_line1",       limit: 255
+    t.string   "address_line2",       limit: 255
+    t.string   "city",                limit: 255
+    t.string   "postcode",            limit: 255
+    t.string   "state",               limit: 255
+    t.string   "country",             limit: 255
+  end
+
+  add_index "locations", ["run_registration_id"], name: "index_locations_on_run_registration_id", using: :btree
+  add_index "locations", ["run_request_id"], name: "index_locations_on_run_request_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name",   limit: 255
@@ -54,6 +72,8 @@ ActiveRecord::Schema.define(version: 20161113075514) do
     t.text     "message",                      limit: 65535
     t.float    "latitude",                     limit: 24
     t.float    "longitude",                    limit: 24
+    t.integer  "from_id",                      limit: 4
+    t.integer  "to_id",                        limit: 4
   end
 
   add_index "run_registrations", ["user_id"], name: "index_run_registrations_on_user_id", using: :btree
@@ -99,6 +119,8 @@ ActiveRecord::Schema.define(version: 20161113075514) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "locations", "run_registrations"
+  add_foreign_key "locations", "run_requests"
   add_foreign_key "profiles", "users"
   add_foreign_key "run_registrations", "users"
   add_foreign_key "run_requests", "users"
