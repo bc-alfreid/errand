@@ -10,8 +10,10 @@ class RunRegistrationsController < ApplicationController
   end
 
   def search
+
+    @profile = current_user.profile if current_user
+
     @run_registrations = RunRegistration.all
-    @profile = current_user.profile
 
     @nearby_run_registration = []
     @nearby_run_registrations_from = []
@@ -21,7 +23,7 @@ class RunRegistrationsController < ApplicationController
     @searched_nearby_locations_to = Location.near(params['runner_to'], 5)
 
     @searched_nearby_locations_from.each do |searched_nearby_location_from|
-      if searched_nearby_location_from.from_run_registration          # if location is from_id, get the to_id
+      if searched_nearby_location_from.from_run_registration          # if location is from_id, get the from_id
         @nearby_run_registrations_from << searched_nearby_location_from.from_run_registration
       end
     end
