@@ -158,6 +158,8 @@ class RunRequestsController < ApplicationController
   # DELETE /run_requests/1
   # DELETE /run_requests/1.json
   def destroy
+    @location_to.destroy
+    @location_from.destroy
     @run_request.destroy
     respond_to do |format|
       format.html { redirect_to url_for(:controller => :home, :action => :index), notice: 'Run request was successfully deleted.' }

@@ -30,7 +30,7 @@
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%= i %>" aria-expanded="false" aria-controls="collapseTwo<%= i %>">
                           <span>
                             <%= run_request.desrciption %>
-                            <p align="right"><%= link_to 'Delete', run_request_path(run_request), method: :delete%></p>
+                            <p style="display:inline; float: right"><%= link_to 'Delete', run_request_path(run_request), method: :delete%></p>
                           </span>
 
                         </a>
@@ -89,7 +89,7 @@
                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<%= i %>" aria-expanded="false" aria-controls="collapseThree<%= i %>">
                         <span>
                           <%= run_registration.desciption %>
-                          <p align="right"><%= link_to 'Delete', run_registration_path(run_registration), method: :delete%></p>
+                          <p style="display:inline; float: right"><%= link_to 'Delete', run_registration_path(run_registration), method: :delete%></p>
                         </span>
                       </a>
                     </h4>
