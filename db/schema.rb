@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117085313) do
+ActiveRecord::Schema.define(version: 20161122065854) do
 
   create_table "locations", force: :cascade do |t|
     t.float    "latitude",            limit: 24
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 20161117085313) do
     t.datetime "updated_at",                                 null: false
     t.string   "desrciption",                  limit: 255
     t.text     "message",                      limit: 65535
+    t.integer  "from_id",                      limit: 4
+    t.integer  "to_id",                        limit: 4
   end
 
   add_index "run_requests", ["user_id"], name: "index_run_requests_on_user_id", using: :btree

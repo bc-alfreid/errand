@@ -173,7 +173,6 @@ class RunRegistrationsController < ApplicationController
     end
 
     def set_run_registration_location
-
       @location_from = RunRegistration.find(params[:id]).from
       @location_to = RunRegistration.find(params[:id]).to
     end

@@ -4,6 +4,9 @@ class Location < ActiveRecord::Base
   has_one :from_run_registration, class_name: "RunRegistration", foreign_key: "from_id"
   has_one :to_run_registration, class_name: "RunRegistration", foreign_key: "to_id"
 
+  has_one :from_run_request, class_name: "RunRequest", foreign_key: "from_id"
+  has_one :to_run_request, class_name: "RunRequest", foreign_key: "to_id"
+
   # rails c
   # location = Location.last
   # location.to_run_registration  note. if location is a to_id

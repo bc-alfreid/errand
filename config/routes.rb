@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :run_requests
+
+  resources :run_requests do
+    collection do
+      post :search
+    end
+  end
+
   resources :run_registrations do
     collection do
       post :search

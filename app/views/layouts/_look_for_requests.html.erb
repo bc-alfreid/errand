@@ -2,3 +2,23 @@
   <h1>Look for Requests</h1>
   <p>Search for requests from people who are looking to run eRrands for them.</p>
 </div>
+
+<form class="form-inline" action="/run_requests/search" method="post">
+
+  <!-- adds hiden tag to add authenticity  -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <div class="form-group">
+    <label class="label-align" for="From">From:</label>
+    <input type="text" class="form-control" id="From" placeholder="Location to run errands for for.." name="request_from" size="45">
+  </div>
+  <br style="clear: both;">
+  <div class="form-group">
+    <label class="label-align" for="To">To:   </label>
+    <input type="text" class="form-control" id="To" placeholder="Where are the items need to be delivered.." name="request_to" size="45">
+    <label for="To">Date</label>
+    <input type="text" class="form-control" id="To" placeholder="When does the item needs to be delivered..">
+  </div>
+  <br style="clear: both;">
+  <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Look Now</button>
+</form>
