@@ -9,6 +9,7 @@ class RunRegistrationsController < ApplicationController
     @run_registrations = RunRegistration.all
   end
 
+
   def search
 
     @profile = current_user.profile if current_user

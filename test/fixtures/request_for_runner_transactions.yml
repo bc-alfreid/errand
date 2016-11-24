@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  runner_requestor_id: MyString
+  run_registration_id: MyString
+
+two:
+  runner_requestor_id: MyString
+  run_registration_id: MyString

@@ -20,4 +20,6 @@ class RunRegistration < ActiveRecord::Base
   # run.to
   # TODO: drop column run_registration_id and run_request_id on locations table, no need because of the above associations
 
+  has_many :run_registration_requests, class_name: "RequestForRunnerTransaction", foreign_key: "run_registration_id"
+
 end

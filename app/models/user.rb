@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :run_registrations
   has_many :run_requests
+
+
+  has_many :runner_requests, class_name: "RequestForRunnerTransaction", foreign_key: "runner_requestor_id"
 end

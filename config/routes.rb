@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :request_for_runner_transactions
+
   resources :run_requests do
     collection do
       post :search
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   resources :profiles
   devise_for :users, controllers: { registrations: "registrations" }
   root 'home#index'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
