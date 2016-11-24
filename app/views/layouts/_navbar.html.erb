@@ -40,6 +40,9 @@
 
           <% if current_user.profile %>
             <li>
+              <p class="navbar-text"><%= current_user.profile.first_name %></p>
+            </li>
+            <li>
               <%= image_tag(current_user.profile.photo_url, class: 'img-responsive', :width=>50, :height=>50, :radius=>50, :gravity=>"face", :crop=>"thumb") %>
             </li>
             <!--<li>-->
