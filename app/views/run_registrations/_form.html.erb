@@ -11,8 +11,8 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">Summary</div>
                     <div class="panel-body">
-                      <%= f.input :desciption %>
-                      <%= f.input :message %>
+                      <%= f.input :desciption,  label: 'Run Offer Description:' %>
+                      <%= f.input :message,     label: 'Message:' %>
                     </div>
                 </div>
               </div>
@@ -26,19 +26,19 @@
                   <div class="panel-body">
                     <%= f.input :date_from %>
                     <% if @run_registration.from %>
-                      <%= f.input :location_from_adress_line1, input_html: {value: @run_registration.from.address_line1}  %>
-                      <%= f.input :location_from_adress_line2, input_html: {value: @run_registration.from.address_line2} %>
-                      <%= f.input :location_from_city, input_html: {value: @run_registration.from.city} %>
-                      <%= f.input :location_from_postcode, input_html: {value: @run_registration.from.postcode} %>
-                      <%= f.input :location_from_adress_state, input_html: {value: @run_registration.from.state} %>
-                      <%= f.input :location_from_adress_country, :selected => @run_registration.from.country  %>
+                      <%= f.input :location_from_adress_line1,    input_html: {value: @run_registration.from.address_line1},  label: 'Address Line 1:'  %>
+                      <%= f.input :location_from_adress_line2,    input_html: {value: @run_registration.from.address_line2},  label: 'Address Line 2:' %>
+                      <%= f.input :location_from_city,            input_html: {value: @run_registration.from.city},           label: 'City:' %>
+                      <%= f.input :location_from_postcode,        input_html: {value: @run_registration.from.postcode},       label: 'Postcode:' %>
+                      <%= f.input :location_from_adress_state,    input_html: {value: @run_registration.from.state},          label: 'State:' %>
+                      <%= f.input :location_from_adress_country,  :selected => @run_registration.from.country,                label: 'Country:'  %>
                     <% else %>
-                      <%= f.input :location_from_adress_line1 %>
-                      <%= f.input :location_from_adress_line2 %>
-                      <%= f.input :location_from_city %>
-                      <%= f.input :location_from_postcode %>
-                      <%= f.input :location_from_adress_state %>
-                      <%= f.input :location_from_adress_country  %>
+                      <%= f.input :location_from_adress_line1,    label: 'Address Line 1:' %>
+                      <%= f.input :location_from_adress_line2,    label: 'Address Line 2:' %>
+                      <%= f.input :location_from_city,            label: 'City:' %>
+                      <%= f.input :location_from_postcode,        label: 'Postcode:' %>
+                      <%= f.input :location_from_adress_state,    label: 'State:'  %>
+                      <%= f.input :location_from_adress_country,  label: 'Country:' %>
                     <% end %>
                   </div>
                 </div>
@@ -50,19 +50,19 @@
                   <div class="panel-body">
                     <%= f.input :date_to %>
                     <% if @run_registration.to %>
-                      <%= f.input :location_to_adress_line1, input_html: {value: @run_registration.to.address_line1}  %>
-                      <%= f.input :location_to_adress_line2, input_html: {value: @run_registration.to.address_line2}  %>
-                      <%= f.input :location_to_city, input_html: {value: @run_registration.to.city} %>
-                      <%= f.input :location_to_postcode, input_html: {value: @run_registration.to.postcode} %>
-                      <%= f.input :location_to_adress_state, input_html: {value: @run_registration.to.state} %>
-                      <%= f.input :location_to_adress_country, :selected => @run_registration.to.country %>
+                      <%= f.input :location_to_adress_line1,    input_html: {value: @run_registration.to.address_line1},  label: 'Address Line 1:'  %>
+                      <%= f.input :location_to_adress_line2,    input_html: {value: @run_registration.to.address_line2},  label: 'Address Line 2:'  %>
+                      <%= f.input :location_to_city,            input_html: {value: @run_registration.to.city},           label: 'City:' %>
+                      <%= f.input :location_to_postcode,        input_html: {value: @run_registration.to.postcode},       label: 'Postcode:' %>
+                      <%= f.input :location_to_adress_state,    input_html: {value: @run_registration.to.state},          label: 'State:' %>
+                      <%= f.input :location_to_adress_country,  :selected => @run_registration.to.country,                label: 'Country:' %>
                     <% else %>
-                        <%= f.input :location_to_adress_line1  %>
-                        <%= f.input :location_to_adress_line2  %>
-                        <%= f.input :location_to_city %>
-                        <%= f.input :location_to_postcode %>
-                        <%= f.input :location_to_adress_state %>
-                        <%= f.input :location_to_adress_country %>
+                        <%= f.input :location_to_adress_line1,    label: 'Address Line 1: '%>
+                        <%= f.input :location_to_adress_line2,    label: 'Address Line 2: '%>
+                        <%= f.input :location_to_city,            label: 'City:' %>
+                        <%= f.input :location_to_postcode,        label: 'Postcode:' %>
+                        <%= f.input :location_to_adress_state,    label: 'State:' %>
+                        <%= f.input :location_to_adress_country,  label: 'Country:' %>
                     <% end %>
                   </div>
                 </div>

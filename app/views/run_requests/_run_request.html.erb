@@ -1,3 +1,5 @@
+<hr>
+<p><strong>SUMMARY</strong></p>
 <p>
   <strong>Description:</strong>
   <%= run_request.desrciption %>
@@ -8,74 +10,73 @@
   <%= run_request.message %>
 </p>
 
+<hr>
+<p><strong>ORIGIN</strong></p>
 <p>
-  <strong>Location from adress line1:</strong>
+  <strong>Address Line1:</strong>
   <%= run_request.location_from_adress_line1 %>
 </p>
 
 <p>
-  <strong>Location from adress line2:</strong>
+  <strong>Address Line2:</strong>
   <%= run_request.location_from_adress_line2 %>
 </p>
 
 <p>
-  <strong>Location from city:</strong>
+  <strong>City:</strong>
   <%= run_request.location_from_city %>
 </p>
 
 <p>
-  <strong>Location from postcode:</strong>
+  <strong>Postcode:</strong>
   <%= run_request.location_from_postcode %>
 </p>
 
 <p>
-  <strong>Location from adress state:</strong>
+  <strong>State:</strong>
   <%= run_request.location_from_adress_state %>
 </p>
 
 <p>
-  <strong>Location from adress country:</strong>
+  <strong>Country:</strong>
   <%= run_request.location_from_adress_country %>
 </p>
 
+<hr>
+<p><strong>DESTINATION</strong></p>
 <p>
-  <strong>Location to adress line1:</strong>
+  <strong>Address Line1:</strong>
   <%= run_request.location_to_adress_line1 %>
 </p>
 
 <p>
-  <strong>Location to adress line2:</strong>
+  <strong>Address Line2:</strong>
   <%= run_request.location_to_adress_line2 %>
 </p>
 
 <p>
-  <strong>Location to city:</strong>
+  <strong>City:</strong>
   <%= run_request.location_to_city %>
 </p>
 
 <p>
-  <strong>Location to postcode:</strong>
+  <strong>Postcode:</strong>
   <%= run_request.location_to_postcode %>
 </p>
 
 <p>
-  <strong>Location to adress state:</strong>
+  <strong>State:</strong>
   <%= run_request.location_to_adress_state %>
 </p>
 
 <p>
-  <strong>Location to adress country:</strong>
+  <strong>Country:</strong>
   <%= run_request.location_to_adress_country %>
 </p>
 
 <p>
-  <strong>Date to:</strong>
+  <strong>Date to Destination:</strong>
   <%= run_request.date_to %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= run_request.user %>
 </p>
 
 <%= link_to 'Edit', edit_run_request_path(run_request) %>
