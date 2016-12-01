@@ -100,18 +100,28 @@ h1,h2 {
   padding: 0 !important;
   margin: 0 !important;
   background: rgba(0, 92, 246, 0.2);
-  color: black;
-  height: 400px;
+  /* background-image: url("errand-emotion.jpeg"); */
+  background-size: 100% 100%;
+  color: mediumblue;
+  height: 600px;
   /* scrollable */
   /* overflow-y: scroll; */
 }
+
+input {border-style:none;}
+
 .panel-home-register-run {
 padding: 0 !important;
 margin: 0 !important;
-background: rgba(0, 92, 246, 0.2);
-color: black;
-height: 600px;
+background: white;
+height: 400px;
+/* background-image:url('errand-logo.jpeg'); */
+background-repeat:no-repeat;
+background-size:contain;
+background-position:bottom;
+color: mediumblue;
 }
+
 .panel-home-signup-run {
 padding: 0 !important;
 margin: 0 !important;

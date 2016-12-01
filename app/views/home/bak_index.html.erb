@@ -1,0 +1,205 @@
+
+<div class="row">
+
+
+  <div class="col-md-2 no-col-padding">
+    <ul class="nav nav-pills nav-stacked">
+      </br></br></br></br></br></br></br></br></br></br>
+      <li role="presentation" class="active"><a href="#erunrequests">My eRun Requests</a></li>
+      <li role="presentation"><a href="#erunoffers">My eRun Offers</a></li>
+      <li role="presentation"><a href="#">My Profile</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="erunrequests">
+      <!-- My eRun Requests -->
+      <div class="col-md-5 no-col-padding">
+        <div class="panel, panel-home-requests">
+          <div class="panel-body">
+            <p id="notice"><%= notice %></p>
+            <div class="jumbotron">
+              <h1>My eRun Requests</h1>
+              <p>Here are the list of runs you requested</p>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                    <a href="<%= new_run_request_path %>">Request a Run </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <% i = 1; %>
+                <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
+                  <% @run_requests.each do |run_request| %>
+                      <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="headingTwo<%= i %>">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%= i %>" aria-expanded="false" aria-controls="collapseTwo<%= i %>">
+                          <span>
+                            <%= run_request.desrciption %>
+                            <p style="display:inline; float: right"><%= link_to 'Delete', run_request_path(run_request), method: :delete%></p>
+                          </span>
+
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<%= i %>">
+                          <div class="panel-body">
+                            <%= render run_request %>
+                          </div>
+                        </div>
+                      </div>
+                      <% i = i + 1 %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 " style="width: 95%;">
+                <%= render 'layouts/look_for_runners' %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="tab-content">
+    <div class="tab-pane" id="erunoffers">
+
+      <!-- My eRun Offers -->
+      <div class="col-md-5 no-col-padding">
+        <div class="panel panel-home-registrations">
+          <div class="panel-body">
+            <div class="jumbotron">
+              <h1>My eRun Offers</h1>
+              <p>Here are the list of runs you are willing to do</p>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                    <a href="<%= new_run_registration_path %>">Offer a Run </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <% i = 1; %>
+                <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
+
+                  <% @run_registrations.each do |run_registration| %>
+                    <% run_registration_requests = run_registration.run_registration_requests %>
+
+                    <div class="panel panel-info">
+                      <div class="panel-heading" role="tab" id="headingThree<%= i %>">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<%= i %>" aria-expanded="false" aria-controls="collapseThree<%= i %>">
+                            <span>
+                              <%= run_registration.desciption %>
+                              <p style="display:inline; float: right; margin-left: 10px;"><%= link_to 'Delete', run_registration_path(run_registration), method: :delete%></p>
+                              <p style="display:inline; float: right; margin-left: 5px;">Requests</p>
+                              <p style="display:inline; float: right"><span class="badge"><%= run_registration_requests.count %></span></p>
+                            </span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree<%= i %>">
+                        <div class="panel-body">
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#runofferdetails<%= i %>" role="tab" data-toggle="tab">Run Offer Details</a></li>
+                            <li role="presentation"><a href="#requests<%= i %>" role="tab" data-toggle="tab">Requests for this Offer</a></li>
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="runofferdetails<%= i %>">
+                              <%= render run_registration %>
+                              <!--https://jsfiddle.net/4gLaobzh/-->
+                              <div id="google-map<%= i %>" style="width: 400px; height: 200px;"></div>
+                              <% hash = Gmaps4rails.build_markers(run_registration) do |run_registration, marker| %>
+                                  <% marker.lat run_registration.from.latitude %>
+                                  <% marker.lng run_registration.from.longitude %>
+                                  <% marker.infowindow run_registration.desciption    %>
+                              <% end %>
+
+                              <script type="text/javascript">
+                                function initialize_map() {
+                                  handler = Gmaps.build('Google');
+                                  handler.buildMap({ provider: {}, internal: {id: 'google-map<%= i %>'}}, function(){
+                                    markers = handler.addMarkers(<%=raw hash.to_json %>);
+                                    handler.bounds.extendWith(markers);
+                                    handler.fitMapToBounds();
+                                  });
+                                }
+                                initialize_map();
+                                $("#collapseThree<%= i %>").on('hidden.bs.collapse', function () {
+                                  initialize_map();
+                                });
+                                $("#collapseThree<%= i %>").on('shown.bs.collapse', function () {
+                                  initialize_map();
+                                });
+                                google.maps.event.addDomListener(window, 'resize', function() {
+                                });
+                              </script>
+                            </div>
+
+                            <div class="tab-pane " id="requests<%= i %>">
+
+                              <% run_registration_requests.each do |run_registration_request| %>
+                                <hr>
+                                <p>
+                                  <strong>Run Request Notification From:</strong></br>
+                                  <%= run_registration_request.user.profile.first_name %>
+                                </p>
+                                <%= link_to 'View Profile', profile_path(run_registration_request.user.profile) %></br>
+                                <p>'Approve Request'</p>
+                              <% end %>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <% i = i + 1 %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 " style="width: 95%;">
+                <%= render 'layouts/look_for_requests' %>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
