@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :profiles
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", sessions: 'sessions' }
   root 'home#index'
 
 

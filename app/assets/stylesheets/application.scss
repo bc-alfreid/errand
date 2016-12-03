@@ -96,16 +96,39 @@ h1,h2 {
 }
 
 /* ------------------------------- Before Login - Landing page ------------------------------- */
-.panel-home-search-runner {
+.panel-home-list {
   padding: 0 !important;
   margin: 0 !important;
-  background: rgba(0, 92, 246, 0.2);
-  /* background-image: url("errand-emotion.jpeg"); */
+  background: white;
   background-size: 100% 100%;
   color: black;
-  height: 600px;
+  height: 900px;
   /* scrollable */
   /* overflow-y: scroll; */
+}
+
+.panel-home-image1 {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: white;
+  background-image: url("errand-emotion.jpeg");
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:right;
+  color: black;
+  height: 300px;
+}
+
+.panel-home-image2 {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: white;
+  background-image: url("errand-emotion.jpeg");
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:right;
+  color: black;
+  height: 300px;
 }
 
 input {border-style:none;}
@@ -130,15 +153,25 @@ color: black;
 height: 1000px;
 }
 
-
 .panel-login {
 margin-top: 0px;
 background: rgba(0, 90, 203, 1);
 color: white;
-height: 600px;
-overflow-y: scroll;
-padding: 150px;
+height: 175px;
+padding: 5px;
 baseBorderRadius: 0;
+padding: 0 !important;
+margin: 0 !important;
+}
+
+.panel-signup {
+  margin-top: 0px;
+  background: rgba(0, 90, 203, 1);
+  color: white;
+  height: 1000px;
+  overflow-y: scroll;
+  padding: 150px;
+  baseBorderRadius: 0;
 }
 
 .jumbotron {
