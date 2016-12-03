@@ -5,16 +5,26 @@
 
     <div class="panel panel-home-search-runner">
       <div class="panel-body">
-        <%= render 'layouts/look_for_runners' %>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#runoffers" role="tab" data-toggle="tab">Run Offers</a></li>
+          <li role="presentation"><a href="#runrequests" role="tab" data-toggle="tab">Run Requests</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="runoffers">
+
+          </div>
+
+          <div class="tab-pane " id="runrequests">
+
+          </div>
+
+        </div>
+
       </div>
     </div>
-
-    <div class="panel panel-home-register-run">
-      <div class="panel-body">
-        <%= render 'layouts/offer_a_run' %>
-      </div>
-    </div>
-
   </div>
 
 
@@ -37,6 +47,6 @@
         <%= render "devise/shared/links" %>
       </div>
     </div>
-
   </div>
+
 </div>

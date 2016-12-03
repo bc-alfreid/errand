@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124073634) do
+ActiveRecord::Schema.define(version: 20161201094042) do
 
   create_table "locations", force: :cascade do |t|
     t.float    "latitude",            limit: 24
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20161124073634) do
 
   add_index "locations", ["run_registration_id"], name: "index_locations_on_run_registration_id", using: :btree
   add_index "locations", ["run_request_id"], name: "index_locations_on_run_request_id", using: :btree
+
+  create_table "offer_to_run_transactions", force: :cascade do |t|
+    t.string   "runner_id",      limit: 255
+    t.string   "run_request_id", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name",   limit: 255

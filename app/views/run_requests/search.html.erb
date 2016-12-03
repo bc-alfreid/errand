@@ -29,38 +29,60 @@
                   </div>
                   <div id="collapseThree<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree<%= i %>">
                     <div class="panel-body">
-                      <%= render run_request %>
 
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#requestdetails<%= i %>" role="tab" data-toggle="tab">Run Request Details</a></li>
+                        <li role="presentation"><a href="#requestordetails<%= i %>" role="tab" data-toggle="tab">Requestor Details</a></li>
+                        <li role="presentation"><a href="#notifyrequestor<%= i %>" role="tab" data-toggle="tab">Offer to Run</a></li>
+                      </ul>
 
-                      <!--https://jsfiddle.net/4gLaobzh/-->
-                      <div id="google-map<%= i %>" style="width: 400px; height: 200px;"></div>
+                      <!-- Tab panes -->
+                      <div class="tab-content">
 
-
-                      <% hash = Gmaps4rails.build_markers(run_request) do |run_request, marker| %>
-                          <% marker.lat run_request.from.latitude %>
-                          <% marker.lng run_request.from.longitude %>
-                          <% marker.infowindow run_request.desrciption    %>
-                      <% end %>
-
-                      <script type="text/javascript">
-                          function initialize_map() {
-                              handler = Gmaps.build('Google');
-                              handler.buildMap({ provider: {}, internal: {id: 'google-map<%= i %>'}}, function(){
-                                  markers = handler.addMarkers(<%=raw hash.to_json %>);
-                                  handler.bounds.extendWith(markers);
-                                  handler.fitMapToBounds();
+                        <div class="tab-pane active" id="requestdetails<%= i %>">
+                          <%= render run_request %>
+                          <div id="google-map<%= i %>" style="width: 400px; height: 200px;"></div>
+                          <% hash = Gmaps4rails.build_markers(run_request) do |run_request, marker| %>
+                              <% marker.lat run_request.from.latitude %>
+                              <% marker.lng run_request.from.longitude %>
+                              <% marker.infowindow run_request.desrciption    %>
+                          <% end %>
+                          <script type="text/javascript">
+                              function initialize_map() {
+                                  handler = Gmaps.build('Google');
+                                  handler.buildMap({ provider: {}, internal: {id: 'google-map<%= i %>'}}, function(){
+                                      markers = handler.addMarkers(<%=raw hash.to_json %>);
+                                      handler.bounds.extendWith(markers);
+                                      handler.fitMapToBounds();
+                                  });
+                              }
+                              initialize_map();
+                              $("#collapseThree<%= i %>").on('hidden.bs.collapse', function () {
+                                  initialize_map();
                               });
-                          }
-                          initialize_map();
-                          $("#collapseThree<%= i %>").on('hidden.bs.collapse', function () {
-                              initialize_map();
-                          });
-                          $("#collapseThree<%= i %>").on('shown.bs.collapse', function () {
-                              initialize_map();
-                          });
-                          google.maps.event.addDomListener(window, 'resize', function() {
-                          });
-                      </script>
+                              $("#collapseThree<%= i %>").on('shown.bs.collapse', function () {
+                                  initialize_map();
+                              });
+                              google.maps.event.addDomListener(window, 'resize', function() {
+                              });
+                          </script>
+                        </div>
+
+                        <div class="tab-pane active" id="requestordetails<%= i %>">
+                          <% profile = run_request.user.profile %>
+                          <%= render profile %>
+                        </div>
+
+                        <div class="tab-pane active" id="notifyrequestor<%= i %>">
+                          </br>
+                          <p>By clicking link below, you will be able to notify requestor that your interested on running errands for him.</p>
+                          <p>Your profile details will be sent accross to the requestor.</p>
+                          </br>
+                          <p style="display:inline; float: left"><%= link_to 'Notify Run Requestor Now', offer_to_run_transactions_path(:runner_id => current_user, :run_request_id => run_request), method: :create %></p>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
                 </div>

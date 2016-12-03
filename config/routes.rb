@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :offer_to_run_transactions
   resources :request_for_runner_transactions
 
   resources :run_requests do

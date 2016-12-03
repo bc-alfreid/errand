@@ -26,19 +26,12 @@
 
               <div class="row">
                 <div class="col-md-4">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
-                      <a href="<%= new_run_request_path %>">Request a Run </a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
                   <% i = 1; %>
                   <div class="panel-group" id="accordion" +  role="tablist" aria-multiselectable="true" style="width: 300%;">
                     <% @run_requests.each do |run_request| %>
+
+                        <% run_request_offers = run_request.offers_to_run %>
+
                         <div class="panel panel-info">
                           <div class="panel-heading" role="tab" id="headingTwo<%= i %>">
                             <h4 class="panel-title">
@@ -53,12 +46,49 @@
                           </div>
                           <div id="collapseTwo<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<%= i %>">
                             <div class="panel-body">
-                              <%= render run_request %>
+
+                              <!-- Nav tabs -->
+                              <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#runrequestdetails<%= i %>" role="tab" data-toggle="tab">Run Request Details</a></li>
+                                <li role="presentation"><a href="#offers<%= i %>" role="tab" data-toggle="tab">Offers to Run</a></li>
+                              </ul>
+
+                              <!-- Tab panes -->
+                              <div class="tab-content">
+                                <div class="tab-pane active" id="runrequestdetails<%= i %>">
+                                  <%= render run_request %>
+                                </div>
+
+                                <div class="tab-pane " id="offers<%= i %>">
+                                  <% run_request_offers.each do |run_request_offer| %>
+                                      <hr>
+                                      <p>
+                                        <strong>Offer to Run Notification From:</strong></br>
+                                        <%= run_request_offer.user.profile.first_name %>
+                                      </p>
+                                      <%= link_to 'View Profile', profile_path(run_request_offer.user.profile) %></br>
+                                      <p>'Approve Request'</p>
+                                  <% end %>
+                                </div>
+
+                              </div>
+
+
                             </div>
                           </div>
                         </div>
                         <% i = i + 1 %>
                     <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                      <a href="<%= new_run_request_path %>">Request a Run </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -82,16 +112,6 @@
               <div class="jumbotron">
                 <h1>My eRun Offers</h1>
                 <p>Here are the list of runs you are willing to do</p>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
-                      <a href="<%= new_run_registration_path %>">Offer a Run </a>
-                    </button>
-                  </div>
-                </div>
               </div>
 
               <div class="row">
@@ -176,6 +196,16 @@
                         </div>
                         <% i = i + 1 %>
                     <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="true">
+                      <a href="<%= new_run_registration_path %>">Offer a Run </a>
+                    </button>
                   </div>
                 </div>
               </div>

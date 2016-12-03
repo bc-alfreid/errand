@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
 
 
   has_many :runner_requests, class_name: "RequestForRunnerTransaction", foreign_key: "runner_requestor_id"
+  has_many :run_offers, class_name: "OfferToRunTransaction", foreign_key: "runner_id"
+
 end
