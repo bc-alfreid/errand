@@ -1,12 +1,12 @@
 <div class="row">
   <div class="panel panel-login">
     <div class="panel-body">
-      <div class="col-md-7">
+      <div class="col-xs-7 col-md-7">
         <!--<div><h1>Welcome to Airrand</h1></div>-->
         <%= image_tag(asset_path("logo.png"), :alt => "rss feed") %>
       </div>
 
-      <div class="col-md-5">
+      <div class="col-xs-5 col-md-5">
 
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="form-inline">
@@ -17,7 +17,7 @@
                   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                   <%= render "devise/shared/links" %>
                 </div>
-                
+
               </div>
 
 
@@ -30,7 +30,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-7 no-col-padding">
+  <div class="col-xs-7 col-md-7 no-col-padding">
 
     <div class="panel panel-home-list">
       <div class="panel-body">
@@ -151,7 +151,7 @@
     </div>
   </div>
 
-  <div class="col-md-5 no-col-padding">
+  <div class="col-xs-5 col-md-5 no-col-padding">
     <div class="row">
       <div class="panel panel-home-image2">
         <div class="panel-body">
