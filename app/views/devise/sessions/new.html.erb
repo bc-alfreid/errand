@@ -2,7 +2,8 @@
   <div class="panel panel-login">
     <div class="panel-body">
       <div class="col-md-8">
-        <div><h1>Welcome to Airrand</h1></div>
+        <!--<div><h1>Welcome to Airrand</h1></div>-->
+        <%= image_tag("logo.png", :alt => "rss feed") %>
       </div>
 
       <div class="col-md-4">
@@ -42,7 +43,7 @@
             <% i = 1 %>
             <% @all_run_registrations.each do |run_registration| %>
 
-                <div class="panel panel-info">
+                <div class="panel panel-transparent">
                   <div class="panel-heading" role="tab" id="headingThree<%= i %>">
                     <h4 class="panel-title">
                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<%= i %>" aria-expanded="false" aria-controls="collapseThree<%= i %>">
@@ -71,11 +72,12 @@
 
                         </div>
 
-                        <div class="tab-pane active" id="runnerdetails<%= i %>">
-
+                        <div class="tab-pane" id="runnerdetails<%= i %>">
+                          <% profile = run_registration.user.profile %>
+                          <%= render partial:"profiles/profile", locals:{profile:profile} %>
                         </div>
 
-                        <div class="tab-pane active" id="messages<%= i %>">
+                        <div class="tab-pane" id="messages<%= i %>">
                           </br>
 
                         </div>
@@ -89,6 +91,53 @@
           </div>
 
           <div class="tab-pane " id="runrequests">
+            <% i = 1 %>
+            <% @all_run_requests.each do |run_request| %>
+
+                <div class="panel panel-transparent">
+                  <div class="panel-heading" role="tab" id="headingTwo<%= i %>">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%= i %>" aria-expanded="false" aria-controls="collapseTwo<%= i %>">
+                        <span>
+                          <%= run_request.desrciption %>
+                        </span>
+                      </a>
+                    </h4>
+                  </div>
+
+                  <div id="collapseTwo<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<%= i %>">
+                    <div class="panel-body">
+
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#requestdetails<%= i %>" role="tab" data-toggle="tab">Run Request Details</a></li>
+                        <li role="presentation"><a href="#requestordetails<%= i %>" role="tab" data-toggle="tab">Requestor Details</a></li>
+                        <li role="presentation"><a href="#requestmessages<%= i %>" role="tab" data-toggle="tab">Messages</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+
+                        <div class="tab-pane active" id="requestdetails<%= i %>">
+                          <%= render partial:"run_requests/run_request", locals:{run_request:run_request} %>
+                        </div>
+
+                        <div class="tab-pane" id="requestordetails<%= i %>">
+                          <% profile = run_request.user.profile %>
+                          <%= render partial:"profiles/profile", locals:{profile:profile} %>
+                        </div>
+
+                        <div class="tab-pane" id="requestmessages<%= i %>">
+                          </br>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <% i = i + 1 %>
+            <% end %>
 
           </div>
 
@@ -99,10 +148,32 @@
   </div>
 
   <div class="col-md-5 no-col-padding">
-    <div class="panel panel-home-image1">
-      <div class="panel-body">
+    <div class="row">
+      <div class="panel panel-home-image1">
+        <div class="panel-body">
+          <div class="jumbotron">
+            <h1>Look For Runners</h1>
+            <p>Search for people who are willing to run eRrands for you.</p>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="row">
+      <div class="panel panel-home-image2">
+        <div class="panel-body">
+          <div class="jumbotron">
+            <h1>Offer a Run</h1>
+            <p>Tell people you are willing to run eRrands for them. Login or Singup now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="row">-->
+      <!--<div class="panel panel-home-image3">-->
+        <!--<div class="panel-body">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
 </div>
