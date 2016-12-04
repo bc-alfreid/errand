@@ -1,24 +1,28 @@
 <div class="row">
   <div class="panel panel-login">
     <div class="panel-body">
-      <div class="col-md-8">
+      <div class="col-md-7">
         <!--<div><h1>Welcome to Airrand</h1></div>-->
         <%= image_tag(asset_path("logo.png"), :alt => "rss feed") %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-5">
+
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="form-inline">
-                <%= f.input :email, required: false, autofocus: true, placeholder: 'Email', label: false %>
-                <%= f.input :password, required: false, placeholder: 'Password', label: false %>
+                <div class="row">
+                  <%= f.input :email, required: false, autofocus: true, placeholder: 'Email', label: false %>
+                  <%= f.input :password, required: false, placeholder: 'Password', label: false %>
+                  <%= f.button :submit, "Log in" %>
+                  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  <%= render "devise/shared/links" %>
+                </div>
+                
+              </div>
 
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, "Log in" %>
-              </div>
+
           <% end %>
-          <%= render "devise/shared/links" %>
+
       </div>
 
     </div>
@@ -149,16 +153,6 @@
 
   <div class="col-md-5 no-col-padding">
     <div class="row">
-      <div class="panel panel-home-image1">
-        <div class="panel-body">
-          <div class="jumbotron">
-            <h1>Look For Runners</h1>
-            <p>Search for people who are willing to run eRrands for you.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
       <div class="panel panel-home-image2">
         <div class="panel-body">
           <div class="jumbotron">
@@ -168,6 +162,17 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="panel panel-home-image1">
+        <div class="panel-body">
+          <div class="jumbotron">
+            <h1>Look For Runners</h1>
+            <p>Search for people who are willing to run eRrands for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--<div class="row">-->
       <!--<div class="panel panel-home-image3">-->
         <!--<div class="panel-body">-->
